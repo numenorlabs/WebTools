@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Window Size</title>
+</head>
+<body>
+
+<p id="window-size">Loading window size...</p>
+<script>
+    function updateWindowSize() {
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        document.getElementById("window-size").textContent =
+            `Window size: ${windowWidth}px x ${windowHeight}px`;
+    }
+
+    // Initial display of window size
+    updateWindowSize();
+
+    // Update window size when the window is resized
+    window.addEventListener("resize", updateWindowSize);
+</script>
+
+</body>
+</html>
