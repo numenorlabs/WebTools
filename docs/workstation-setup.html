@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Workstation setup</title>
+</head>
+<body>
+
+<p>Set git author information</p>
+<p><code>
+$ git config --global user.name &quot;Developer&quot;
+$ git config --global user.email developer@localhost
+</code></p>
+<p>Install Xcode command line tools</p>
+<p><code>
+$ xcode-select --install
+</code></p>
+<h1>Dock</h1>
+<p>Set dock size from the command line. <a href="https://joshtronic.com/2024/12/15/set-dock-icon-size-on-macos-cli/">Set Dock Size</a></p>
+<p><code>
+$ defaults write com.apple.Dock tilesize -int 32 &amp;&amp; killall -HUP Dock
+</code></p>
+<h1>Finder</h1>
+<p>Hide Recent Tags in sidebar</p>
+<p><code>
+$ defaults write com.apple.finder ShowRecentTags -bool false &amp;&amp; killall -HUP Finder
+</code></p>
+<h1>Safari</h1>
+<p>Terminal must be granted full disk access in order to modify Safari preferences. Settings &gt; Privacy &amp; Security &gt; Full Disk Access</p>
+<p><code>
+# Always show tab bar
+$ defaults write com.apple.Safari AlwaysShowTabBar -bool true
+# Show status bar
+$ defaults write com.apple.Safari ShowOverlayStatusBar -bool true
+# Show full website address
+$ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+</code> <em>Show features for web developers</em> looks like it is enabled via multiple keys. </p>
+<h1>Quarantine</h1>
+<p>Remove quarantine from all files in a directory</p>
+<p><code>
+$ xattr -rd com.apple.quarantine lilypond-2.24.4/bin
+</code></p>
+
+</body>
+</html>
