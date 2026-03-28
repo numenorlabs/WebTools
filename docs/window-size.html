@@ -3,6 +3,10 @@
 <head>
     <title>Window Size</title>
     <style>
+        #label-track {
+            display: flex;
+            justify-content: start;
+        }
         #window-size {
             background-color: lightskyblue;
             border-radius: 5px;
@@ -22,8 +26,19 @@
             window.addEventListener("resize", updateWindowSize);
         });
     </script>
+    <script>
+        function changeAlignment() {
+            const alignSequence = {"start":"center", "center":"end", "end":"start"}
+            this.style.textAlign = alignSequence[window.getComputedStyle(this).textAlign];
+            this.parentElement.style.justifyContent = alignSequence[window.getComputedStyle(this.parentElement).justifyContent];
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById('window-size').addEventListener('click', changeAlignment);
+        });
+    </script>
 </head>
 <body>
-    <div id="window-size">Loading window size...</div>
+    <div id="label-track"><div id="window-size">Loading window size...</div></div>
 </body>
 </html>
